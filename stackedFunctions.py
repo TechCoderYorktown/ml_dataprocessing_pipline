@@ -5,8 +5,10 @@ import xgboost as xgb
 
 
 def assign_sector(mlt):
-    # map 0-3 and 21-24 to night
-    # {'dawn':(3,9),'day':(9,15),'dusk':(15,21),'night':(21,24)}
+    # 'dawn':(3,9)
+    # 'day':(9,15)
+    # 'dusk':(15,21)
+    # 'night':(21,24)
     try:
         m = float(mlt)
     except:
