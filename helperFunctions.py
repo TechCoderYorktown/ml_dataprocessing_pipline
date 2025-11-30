@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import numpy as np
 import pandas as pd
+import os
 # import pickle
 import re
 from sklearn.metrics import r2_score, mean_squared_error
@@ -386,7 +387,8 @@ def read_probes_data(data_dir, fulldata_settings):
         else:
             df_full = pd.concat([df_full, df], ignore_index=True)  
     
-    df_full[fulldata_settings["datetime_name"]] = df_full['time'].apply(lambda x : time_string(x)).astype('datetime64[ns]')
+    # df_full[fulldata_settings["datetime_name"]] = df_full['time'].apply(lambda x : time_string(x)).astype('datetime64[ns]')
+    df_full[fulldata_settings["datetime_name"]] = pd.to_datetime(df_full['time'])
     
     return df_full
 
